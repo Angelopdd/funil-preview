@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Do Bruto ao Pronto com IA · Treinamento de edição de vídeo</title>
+<meta name="description" content="Aprenda a editar vídeos com IA usando comandos em português: cortes, legendas, animações, efeitos e exportação. Garantia de 7 dias.">
+<!-- CONFIRMAR (pendência 12): indexar no Google ou manter noindex. Enquanto isso, a página fica fora do buscador. -->
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#000000">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Do Bruto ao Pronto com IA · Treinamento de edição de vídeo">
+<meta property="og:description" content="Aprenda a editar vídeos com IA usando comandos em português: cortes, legendas, animações, efeitos e exportação. Garantia de 7 dias.">
+<link rel="icon" href="assets/brand/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/brand/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/pagina.css">
+<script>document.documentElement.classList.add('js')</script>
+<script src="js/preview.js" defer></script>
+<script src="js/pagina.js" defer></script>
+</head>
+<body>
+
+<!-- Ícones (traço de 24 px, herdam a cor do texto) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-seta" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+    <symbol id="i-ok" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-mais" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5v14"/></symbol>
+    <symbol id="i-esq" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+    <symbol id="i-dir" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+    <symbol id="i-baixo" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4.5v15a1 1 0 0 0 1.52.85l12-7.5a1 1 0 0 0 0-1.7l-12-7.5A1 1 0 0 0 7 4.5z" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-tesoura" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.12 15.88"/><path d="M14.47 14.48 20 20"/><path d="M8.12 8.12 12 12"/></symbol>
+    <symbol id="i-legenda" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M7 15h4"/><path d="M15 15h2"/><path d="M7 11h2"/><path d="M13 11h4"/></symbol>
+    <symbol id="i-brilho" viewBox="0 0 24 24"><path d="M9.94 15.5A2 2 0 0 0 8.5 14.06l-6.14-1.58a.5.5 0 0 1 0-.96L8.5 9.94A2 2 0 0 0 9.94 8.5l1.58-6.14a.5.5 0 0 1 .96 0l1.58 6.14a2 2 0 0 0 1.44 1.44l6.14 1.58a.5.5 0 0 1 0 .96l-6.14 1.58a2 2 0 0 0-1.44 1.44l-1.58 6.14a.5.5 0 0 1-.96 0z"/></symbol>
+    <symbol id="i-raio" viewBox="0 0 24 24"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></symbol>
+    <symbol id="i-olho" viewBox="0 0 24 24"><path d="M2.06 12.35a1 1 0 0 1 0-.7 10.75 10.75 0 0 1 19.88 0 1 1 0 0 1 0 .7 10.75 10.75 0 0 1-19.88 0"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-refazer" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></symbol>
+    <symbol id="i-medidor" viewBox="0 0 24 24"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></symbol>
+    <symbol id="i-livro" viewBox="0 0 24 24"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></symbol>
+    <symbol id="i-terminal" viewBox="0 0 24 24"><path d="M12 19h8"/><path d="m4 17 6-6-6-6"/></symbol>
+    <symbol id="i-ajustes" viewBox="0 0 24 24"><path d="M10 5H3"/><path d="M12 19H3"/><path d="M14 3v4"/><path d="M16 17v4"/><path d="M21 12h-9"/><path d="M21 19h-5"/><path d="M21 5h-7"/><path d="M8 10v4"/><path d="M8 12H3"/></symbol>
+    <symbol id="i-video" viewBox="0 0 24 24"><path d="m16 13 5.22 3.48a.5.5 0 0 0 .78-.42V7.87a.5.5 0 0 0-.75-.43L16 10.5"/><rect x="2" y="6" width="14" height="12" rx="2"/></symbol>
+    <symbol id="i-notebook" viewBox="0 0 24 24"><path d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0 1.28 2.55a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45L4 16"/></symbol>
+    <symbol id="i-escudo" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-celular" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></symbol>
+    <symbol id="i-megafone" viewBox="0 0 24 24"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></symbol>
+    <symbol id="i-capelo" viewBox="0 0 24 24"><path d="M21.42 10.92a1 1 0 0 0-.02-1.84L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.83l8.57 3.91a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></symbol>
+    <symbol id="i-pessoa" viewBox="0 0 24 24"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></symbol>
+    <symbol id="i-filme" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="2.18"/><path d="M7 2v20"/><path d="M17 2v20"/><path d="M2 12h20"/><path d="M2 7h5"/><path d="M2 17h5"/><path d="M17 17h5"/><path d="M17 7h5"/></symbol>
+    <symbol id="i-imagem" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.09-3.09a2 2 0 0 0-2.82 0L6 21"/></symbol>
+  </defs>
+</svg>
+
+<a class="pular" href="#inicio">Pular para o conteúdo</a>
+
+<header class="cab">
+  <a class="cab-logo" href="#inicio" aria-label="Do Bruto ao Pronto com IA, ir ao topo">
+    <img src="assets/brand/logo-escuro-600.webp" width="124" height="38" alt="Do Bruto ao Pronto com IA">
+  </a>
+</header>
+
+<main id="conteudo">
+
+<!-- ======================================================== 01 · PRIMEIRA DOBRA · E -->
+<section class="sec sec-hero" id="inicio" aria-labelledby="t-hero">
+  <div class="cx hero-grade">
+    <div class="hero-txt">
+      <p class="etiqueta" data-rv>Treinamento prático · Edição de vídeo com IA</p>
+      <h1 class="h1" id="t-hero" data-rv>Gravou, errou, repetiu? Aprenda a transformar seu vídeo bruto em <span class="dest">uma edição profissional com IA.</span></h1>
+      <p class="sub" data-rv>Transforme vídeos comuns em conteúdos com cortes, legendas e animações, dando comandos simples em português.</p>
+      <p class="compl" data-rv>Da instalação às edições mais avançadas, com um passo a passo simples até para quem nunca editou.</p>
+      <ul class="selos" data-rv>
+        <li><svg class="ic" aria-hidden="true"><use href="#i-ok"/></svg>Comandos em português</li>
+        <li><svg class="ic" aria-hidden="true"><use href="#i-ok"/></svg>Sem programar</li>
+        <li><svg class="ic" aria-hidden="true"><use href="#i-ok"/></svg>Passo a passo no computador</li>
+      </ul>
+    </div>
+
+    <!-- ASSET: vídeo de vendas (VSL), vertical 9:16. Trocar este bloco pelo player quando o arquivo existir. -->
+    <div class="hero-video" data-rv>
+      <div class="ph" role="img" aria-label="Espaço reservado para o vídeo de vendas, formato vertical 9:16" data-slot="vsl">
+        <span class="ph-play"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg></span>
+        <span class="ph-leg">Vídeo de vendas · 9:16</span>
+      </div>
+    </div>
+
+    <div class="hero-cta" data-rv>
+      <!-- CONFIRMAR (pendência do topo): o botão aparece só depois de metade da VSL ou desde o início? Por ora, desde o início. -->
+      <a class="btn" href="#comprar">QUERO COMEÇAR AGORA <svg class="ic" aria-hidden="true"><use href="#i-seta"/></svg></a>
+      <p class="nota-preco">R$ 47,90 ou até 12x de R$ 5,32 · Garantia de 7 dias</p>
+      <p class="micro">O plano da IA é contratado separadamente.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================== 02 · DEMONSTRAÇÃO · E -->
+<section class="sec sec-e1" id="demonstracao" aria-labelledby="t-demo">
+  <div class="cx">
+    <header class="sec-cab">
+      <h2 class="h2" id="t-demo" data-rv>Isso aqui era o bruto. E isso aqui é o pronto.</h2>
+      <p class="sub" data-rv>A mesma gravação, com cortes revisados, legendas e animações acompanhando a fala.</p>
+    </header>
+
+    <div class="demo" id="demo" data-rv>
+      <div class="seg" role="group" aria-label="Escolher versão">
+        <button type="button" class="seg-b" data-ver="bruto" aria-pressed="false">Bruto</button>
+        <button type="button" class="seg-b" data-ver="pronto" aria-pressed="true">Pronto</button>
+      </div>
+
+      <!-- ASSET: gravação real, versão bruta e versão pronta. -->
+      <div class="demo-par" data-ativo="pronto">
+        <figure class="demo-q demo-bruto">
+          <div class="ph ph-bruto" role="img" aria-label="Espaço reservado para a versão bruta da gravação" data-slot="demo-bruto">
+            <span class="ph-pausa" aria-hidden="true">pausa</span>
+            <span class="ph-pausa p2" aria-hidden="true">repetição</span>
+            <span class="ph-leg">Gravação bruta · 9:16</span>
+          </div>
+          <figcaption>Bruto</figcaption>
+        </figure>
+        <svg class="demo-seta ic" aria-hidden="true"><use href="#i-seta"/></svg>
+        <figure class="demo-q demo-pronto">
+          <div class="ph ph-pronto" role="img" aria-label="Espaço reservado para a versão pronta da gravação" data-slot="demo-pronto">
+            <span class="ph-legenda" aria-hidden="true">legenda no tempo da fala</span>
+            <span class="ph-leg">Versão pronta · 9:16</span>
+          </div>
+          <figcaption>Pronto</figcaption>
+        </figure>
+      </div>
+
+      <div class="tl" id="tl" aria-hidden="true">
+        <div class="tl-linha">
+          <span class="tl-rot">Bruto</span>
+          <span class="tl-trilho"><i style="--w:15;--i:0"></i><b style="--w:6"></b><i style="--w:19;--i:1"></i><b style="--w:9"></b><i style="--w:13;--i:2"></i><b style="--w:5"></b><i style="--w:21;--i:3"></i><b style="--w:7"></b><i style="--w:5;--i:4"></i></span>
+          <span class="tl-tempo">0:00</span>
+        </div>
+        <div class="tl-linha tl-pronto">
+          <span class="tl-rot">Pronto</span>
+          <span class="tl-trilho"><i style="--w:15;--i:5"></i><i style="--w:19;--i:6"></i><i style="--w:13;--i:7"></i><i style="--w:21;--i:8"></i><i style="--w:5;--i:9"></i></span>
+          <span class="tl-tempo">0:00</span>
+        </div>
+      </div>
+      <p class="demo-leg">Duração: bruto <span class="pendente">0:00</span> → pronto <span class="pendente">0:00</span></p>
+      <div class="demo-acao">
+        <button type="button" class="btn btn-sec" id="tl-refazer"><svg class="ic" aria-hidden="true"><use href="#i-refazer"/></svg>Ver de novo</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================== 03 · COMO FUNCIONA · E -->
+<section class="sec" id="como-funciona" aria-labelledby="t-como">
+  <div class="cx">
+    <header class="sec-cab">
+      <h2 class="h2" id="t-como" data-rv>Você pede em português. A IA faz o trabalho pesado. Você aprova.</h2>
+    </header>
+
+    <div class="como-grade">
+      <ol class="passos">
+        <li class="passo" data-rv>
+          <span class="passo-n" aria-hidden="true">1</span>
+          <div><h3 class="h3">Configure uma vez</h3>
+          <p>Uma aula guiada mostra a configuração inicial do computador. Você faz uma vez e fica pronto para os próximos vídeos.</p></div>
+        </li>
+        <li class="passo" data-rv>
+          <span class="passo-n" aria-hidden="true">2</span>
+          <div><h3 class="h3">Use os comandos prontos</h3>
+          <p>Comece com comandos prontos e adapte ao seu vídeo. Nada de linguagem de programação.</p></div>
+        </li>
+        <li class="passo" data-rv>
+          <span class="passo-n" aria-hidden="true">3</span>
+          <div><h3 class="h3">Veja a prévia e ajuste</h3>
+          <p>Confira o resultado, peça o que quiser mudar e exporte quando estiver satisfeito.</p></div>
+        </li>
+      </ol>
+
+      <!-- CONFIRMAR (pendência 5): qual ferramenta de IA o treinamento usa e se será nomeada. O texto fala só em "a IA". -->
+      <figure class="chat" data-rv aria-label="Exemplo ilustrativo de conversa com a IA">
+        <div class="chat-topo"><span class="chat-pts" aria-hidden="true"><i></i><i></i><i></i></span><span>Exemplo ilustrativo de conversa</span></div>
+        <div class="chat-corpo">
+          <p class="bolha voce"><span class="quem">Você</span>Tira os trechos em que eu errei e mantém a melhor tomada.</p>
+          <p class="bolha ia"><span class="quem">IA</span>Separei os cortes. Veja a prévia e me diga o que quer mudar.</p>
+          <p class="bolha voce"><span class="quem">Você</span>Deixa a legenda maior e mais rápida.</p>
+          <p class="bolha ia"><span class="quem">IA</span>Pronto, atualizei. Quer ver de novo?</p>
+        </div>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================== 04 · ESTILOS E EFEITOS · E -->
+<section class="sec sec-e1" id="estilos" aria-labelledby="t-estilos">
+  <div class="cx">
+    <header class="sec-cab">
+      <h2 class="h2" id="t-estilos" data-rv>Imagine transformar seus vídeos com edições como estas.</h2>
+      <p class="sub" data-rv>Veja os estilos e o pedido por trás de cada um. Arraste para o lado.</p>
+    </header>
+  </div>
+
+  <!-- ASSET: vídeos reais verticais. Só as categorias que existirem gravadas. CONFIRMAR (pendência 7): quais efeitos o treinamento ensina. -->
+  <div class="carrossel" data-rv>
+    <div class="car-trilho" id="car" tabindex="0" role="region" aria-label="Exemplos de edições. Use as setas do teclado para navegar.">
+      <article class="car-card">
+        <div class="ph" role="img" aria-label="Espaço reservado para o vídeo: palavras atrás da pessoa" data-slot="estilo-1"><span class="ph-play ph-play-p"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg></span></div>
+        <p class="car-cat">Palavras atrás da pessoa</p>
+        <p class="car-pedido">Pedido: <span class="pendente">a definir com o vídeo</span></p>
+      </article>
+      <article class="car-card">
+        <div class="ph" role="img" aria-label="Espaço reservado para o vídeo: divisão de tela" data-slot="estilo-2"><span class="ph-play ph-play-p"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg></span></div>
+        <p class="car-cat">Divisão de tela</p>
+        <p class="car-pedido">Pedido: <span class="pendente">a definir com o vídeo</span></p>
+      </article>
+      <article class="car-card">
+        <div class="ph" role="img" aria-label="Espaço reservado para o vídeo: textos animados" data-slot="estilo-3"><span class="ph-play ph-play-p"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg></span></div>
+        <p class="car-cat">Textos animados</p>
+        <p class="car-pedido">Pedido: <span class="pendente">a definir com o vídeo</span></p>
+      </article>
+      <article class="car-card">
+        <div class="ph" role="img" aria-label="Espaço reservado para o vídeo: imagens com profundidade" data-slot="estilo-4"><span class="ph-play ph-play-p"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg></span></div>
+        <p class="car-cat">Imagens com profundidade</p>
+        <p class="car-pedido">Pedido: <span class="pendente">a definir com o vídeo</span></p>
+      </article>
+      <article class="car-card">
+        <div class="ph" role="img" aria-label="Espaço reservado para o vídeo: efeitos sincronizados com a fala" data-slot="estilo-5"><span class="ph-play ph-play-p"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg></span></div>
+        <p class="car-cat">Efeitos sincronizados com a fala</p>
+        <p class="car-pedido">Pedido: <span class="pendente">a definir com o vídeo</span></p>
+      </article>
+    </div>
+    <div class="car-ctrl">
+      <button type="button" class="car-b" id="car-ant" aria-label="Exemplos anteriores"><svg class="ic" aria-hidden="true"><use href="#i-esq"/></svg></button>
+      <button type="button" class="car-b" id="car-prox" aria-label="Próximos exemplos"><svg class="ic" aria-hidden="true"><use href="#i-dir"/></svg></button>
+    </div>
+  </div>
+
+  <div class="cx">
+    <div class="ref" data-rv>
+      <svg class="ic ic-g" aria-hidden="true"><use href="#i-olho"/></svg>
+      <div>
+        <h3 class="h3">Viu um vídeo que gostou? Aprenda a pedir um parecido.</h3>
+        <p>Você aprende a mostrar uma referência para a IA, entender o que torna aquele estilo reconhecível e adaptar a ideia ao seu conteúdo. Para inspirar o seu trabalho, não para copiar o de outra pessoa.</p>
+      </div>
+    </div>
+    <!-- CONFIRMAR: a frase abaixo só vale quando os vídeos reais estiverem no carrossel. -->
+    <p class="nota-sec">Todos os exemplos foram editados com o método do treinamento.</p>
+  </div>
+</section>
+
+<!-- ======================================================== 05 · ANTES E DEPOIS · C -->
+<section class="sec sec-clara" id="antes-depois" aria-labelledby="t-antes">
+  <div class="cx">
+    <header class="sec-cab">
+      <h2 class="h2 h2-longo" id="t-antes" data-rv>O que muda quando você transforma uma gravação bruta em um vídeo editado?</h2>
+      <p class="sub" data-rv>Veja o bruto. Depois, veja o pronto.</p>
+    </header>
+
+    <!-- ASSET: mesmo trecho, bruto e editado, sincronizados. Arraste a divisória para comparar. -->
+    <div class="cmp" id="cmp" data-rv>
+      <div class="cmp-lado cmp-b" aria-hidden="true">
+        <span class="cmp-rot">Bruto</span>
+        <span class="ph-pausa" style="top:34%;left:12%">pausa</span>
+        <span class="ph-pausa p2" style="top:58%;right:auto;left:18%">repetição</span>
+      </div>
+      <div class="cmp-lado cmp-p" aria-hidden="true">
+        <span class="cmp-rot cmp-rot-p">Pronto</span>
+        <span class="ph-legenda">legenda no tempo da fala</span>
+      </div>
+      <span class="cmp-linha" aria-hidden="true"></span>
+      <span class="cmp-botao" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="#i-esq"/></svg><svg class="ic" aria-hidden="true"><use href="#i-dir"/></svg></span>
+      <input type="range" min="0" max="100" value="50" step="1" aria-label="Comparar bruto e pronto: arraste para revelar cada versão" aria-valuetext="50% bruto e 50% pronto">
+      <span class="cmp-vazio" aria-hidden="true">Vídeos de comparação · 9:16</span>
+    </div>
+
+    <dl class="cont" data-rv>
+      <div><dt>de gravação</dt><dd class="pendente">0:00</dd></div>
+      <div><dt>de vídeo pronto</dt><dd class="pendente">0:00</dd></div>
+      <div><dt>a menos</dt><dd class="pendente">0 s</dd></div>
+    </dl>
+    <!-- CONFIRMAR: nota válida quando o vídeo real for o do Vitor. -->
+    <p class="nota-sec">Vídeo do Vitor, editado com os métodos do treinamento.</p>
+  </div>
+</section>
+
+<!-- ======================================================== 06 · CONTROLE DA EDIÇÃO · E -->
+<section class="sec" id="controle" aria-labelledby="t-controle">
+  <div class="cx">
+    <header class="sec-cab">
+      <h2 class="h2" id="t-controle" data-rv>Não gostou do resultado? Você não precisa aceitar a primeira versão.</h2>
+      <p class="sub" data-rv>Peça o ajuste em português e a IA refaz só o que precisa.</p>
+    </header>
+
+    <div class="grade g3">
+      <article class="cartao cartao-ctl" data-rv>
+        <svg class="mini" viewBox="0 0 160 72" aria-hidden="true"><rect x="8" y="10" width="54" height="52" rx="8" class="m-apagado"/><circle cx="26" cy="28" r="6" class="m-apagado2"/><path d="m14 54 14-14 10 10 8-8 10 12z" class="m-apagado2"/><path d="M72 36h16m-6-6 6 6-6 6" class="m-traco"/><rect x="98" y="10" width="54" height="52" rx="8" class="m-azul"/><circle cx="116" cy="28" r="6" class="m-azul2"/><path d="m104 54 14-14 10 10 8-8 10 12z" class="m-azul2"/></svg>
+        <h3 class="h3">Trocar uma imagem</h3>
+        <p class="pedido"><svg class="ic" aria-hidden="true"><use href="#i-imagem"/></svg><span>Pedido: “Troca essa imagem por uma mais clara e que combine com a fala.”</span></p>
+      </article>
+      <article class="cartao cartao-ctl" data-rv>
+        <svg class="mini" viewBox="0 0 160 72" aria-hidden="true"><rect x="12" y="10" width="136" height="20" rx="10" class="m-apagado"/><path d="M72 40v8m-4-4 4 4 4-4" class="m-traco"/><rect x="44" y="54" width="72" height="12" rx="6" class="m-azul"/></svg>
+        <h3 class="h3">Diminuir a legenda</h3>
+        <p class="pedido"><svg class="ic" aria-hidden="true"><use href="#i-legenda"/></svg><span>Pedido: “Deixa a legenda menor e mais discreta.”</span></p>
+      </article>
+      <article class="cartao cartao-ctl" data-rv>
+        <svg class="mini" viewBox="0 0 160 72" aria-hidden="true"><path d="M8 62h50V12h94" class="m-traco-ap"/><path d="M8 62C70 62 80 12 152 12" class="m-curva"/></svg>
+        <h3 class="h3">Suavizar as animações</h3>
+        <p class="pedido"><svg class="ic" aria-hidden="true"><use href="#i-brilho"/></svg><span>Pedido: “Deixa essas animações mais suaves e com menos movimento.”</span></p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================== 07 · BENEFÍCIOS · E -->
+<section class="sec sec-e1" id="beneficios" aria-labelledby="t-ben">
+  <div class="cx">
+    <header class="sec-cab">
+      <h2 class="h2" id="t-ben" data-rv>Aprenda a fazer a IA trabalhar a favor das suas ideias.</h2>
+    </header>
+
+    <!-- ASSET: um vídeo curto por recurso, ou um único vídeo que muda com o item escolhido. -->
+    <div class="ben" id="ben" data-rv>
+      <div class="ben-lista" role="tablist" aria-label="Recursos do treinamento" aria-orientation="vertical">
+        <button type="button" role="tab" id="bt-1" aria-controls="bp-1" aria-selected="true"><svg class="ic" aria-hidden="true"><use href="#i-tesoura"/></svg><span>Cortes</span></button>
+        <button type="button" role="tab" id="bt-2" aria-controls="bp-2" aria-selected="false" tabindex="-1"><svg class="ic" aria-hidden="true"><use href="#i-legenda"/></svg><span>Legendas dinâmicas</span></button>
+        <button type="button" role="tab" id="bt-3" aria-controls="bp-3" aria-selected="false" tabindex="-1"><svg class="ic" aria-hidden="true"><use href="#i-brilho"/></svg><span>Animações</span></button>
+        <button type="button" role="tab" id="bt-4" aria-controls="bp-4" aria-selected="false" tabindex="-1"><svg class="ic" aria-hidden="true"><use href="#i-raio"/></svg><span>Efeitos</span></button>
+        <button type="button" role="tab" id="bt-5" aria-controls="bp-5" aria-selected="false" tabindex="-1"><svg class="ic" aria-hidden="true"><use href="#i-olho"/></svg><span>Referências</span></button>
+        <button type="button" role="tab" id="bt-6" aria-controls="bp-6" aria-selected="false" tabindex="-1"><svg class="ic" aria-hidden="true"><use href="#i-refazer"/></svg><span>Revisões</span></button>
+        <button type="button" role="tab" id="bt-7" aria-controls="bp-7" aria-selected="false" tabindex="-1"><svg class="ic" aria-hidden="true"><use href="#i-medidor"/></svg><span>Economia de tokens</span></button>
+      </div>
+
+      <div class="ben-paineis">
+        <div class="ben-painel" role="tabpanel" id="bp-1" aria-labelledby="bt-1">
+          <div class="ben-txt"><h3 class="h3">Cortes</h3><p>Tire pausas, tropeços e repetições e deixe a fala fluir, sem passar horas na linha do tempo.</p></div>
+          <div class="ph" role="img" aria-label="Espaço reservado para o vídeo de cortes" data-slot="ben-1"><span class="ph-play ph-play-p"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg></span></div>
+        </div>
+        <div class="ben-painel" role="tabpanel" id="bp-2" aria-labelledby="bt-2" hidden>
+          <div class="ben-txt"><h3 class="h3">Legendas dinâmicas</h3><p>Legenda no tempo da fala, para o vídeo ser entendido até sem som.</p></div>
+          <div class="ph" role="img" aria-label="Espaço reservado para o vídeo de legendas dinâmicas" data-slot="ben-2"><span class="ph-play ph-play-p"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg></span></div>
+        </div>
+        <div class="ben-painel" role="tabpanel" id="bp-3" aria-labelledby="bt-3" hidden>
+          <div class="ben-txt"><h3 class="h3">Animações</h3><p>Texto, títulos e elementos que entram e saem com movimento, para dar acabamento ao vídeo.</p></div>
+          <div class="ph" role="img" aria-label="Espaço reservado para o vídeo de animações" data-slot="ben-3"><span class="ph-play ph-play-p"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg></span></div>
+        </div>
+        <div class="ben-painel" role="tabpanel" id="bp-4" aria-labelledby="bt-4" hidden>
+          <div class="ben-txt"><h3 class="h3">Efeitos</h3><p>Destaques e transições para segurar a atenção sem poluir.</p></div>
+          <div class="ph" role="img" aria-label="Espaço reservado para o vídeo de efeitos" data-slot="ben-4"><span class="ph-play ph-play-p"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg></span></div>
+        </div>
+        <div class="ben-painel" role="tabpanel" id="bp-5" aria-labelledby="bt-5" hidden>
+          <div class="ben-txt"><h3 class="h3">Referências</h3><p>Analise um vídeo que você admira e adapte o estilo ao seu conteúdo.</p></div>
+          <div class="ph" role="img" aria-label="Espaço reservado para o vídeo de referências" data-slot="ben-5"><span class="ph-play ph-play-p"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg></span></div>
+        </div>
+        <div class="ben-painel" role="tabpanel" id="bp-6" aria-labelledby="bt-6" hidden>
+          <div class="ben-txt"><h3 class="h3">Revisões</h3><p>Confira, ajuste e refine sem recomeçar do zero.</p></div>
+          <div class="ph" role="img" aria-label="Espaço reservado para o vídeo de revisões" data-slot="ben-6"><span class="ph-play ph-play-p"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg></span></div>
+        </div>
+        <div class="ben-painel" role="tabpanel" id="bp-7" aria-labelledby="bt-7" hidden>
+          <div class="ben-txt"><h3 class="h3">Economia de tokens</h3><p>Aprenda a usar menos do limite da sua IA, evitando pedidos refeitos e pedidos grandes demais.</p></div>
+          <div class="ph" role="img" aria-label="Espaço reservado para o vídeo de economia de tokens" data-slot="ben-7"><span class="ph-play ph-play-p"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================== 08 · O QUE O ALUNO RECEBE · E -->
+<section class="sec" id="recebe" aria-labelledby="t-recebe">
+  <div class="cx">
+    <header class="sec-cab">
+      <h2 class="h2" id="t-recebe" data-rv>Da primeira configuração até seu primeiro vídeo editado com IA.</h2>
+    </header>
+
+    <div class="grade g5">
+      <article class="cartao" data-rv>
+        <span class="icone"><svg class="ic" aria-hidden="true"><use href="#i-video"/></svg></span>
+        <h3 class="h3">Aulas práticas</h3>
+        <p>Do primeiro passo no computador até a exportação. <span class="pendente">número de aulas e duração a confirmar</span></p>
+      </article>
+      <article class="cartao" data-rv>
+        <span class="icone"><svg class="ic" aria-hidden="true"><use href="#i-livro"/></svg></span>
+        <h3 class="h3">Guias</h3>
+        <p>Passo a passo organizado por etapa, para consultar quando precisar.</p>
+      </article>
+      <article class="cartao" data-rv>
+        <span class="icone"><svg class="ic" aria-hidden="true"><use href="#i-terminal"/></svg></span>
+        <h3 class="h3">Comandos prontos</h3>
+        <p>Copie, cole e adapte ao seu vídeo.</p>
+      </article>
+      <article class="cartao" data-rv>
+        <span class="icone"><svg class="ic" aria-hidden="true"><use href="#i-ajustes"/></svg></span>
+        <h3 class="h3">Presets</h3>
+        <p>Pontos de partida para estilos e ajustes, para você não começar do zero. <span class="pendente">quais, quantos e formato a confirmar</span></p>
+      </article>
+      <article class="cartao" data-rv>
+        <span class="icone"><svg class="ic" aria-hidden="true"><use href="#i-filme"/></svg></span>
+        <h3 class="h3">Aplicação no seu próprio vídeo</h3>
+        <p>Você aprende fazendo, com a sua gravação.</p>
+      </article>
+    </div>
+    <!-- CONFIRMAR (pendência 4): plataforma da área de membros, prazo de acesso e como chega. -->
+
+    <div class="cta-bloco" data-rv>
+      <a class="btn" href="#comprar">QUERO COMEÇAR AGORA <svg class="ic" aria-hidden="true"><use href="#i-seta"/></svg></a>
+      <p class="nota-preco">R$ 47,90 ou até 12x de R$ 5,32 · Garantia de 7 dias</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================== 09 · PARA QUEM É · C -->
+<section class="sec sec-clara" id="para-quem" aria-labelledby="t-quem">
+  <div class="cx">
+    <header class="sec-cab">
+      <h2 class="h2" id="t-quem" data-rv>Tem um vídeo parado na galeria esperando edição?</h2>
+      <p class="sub" data-rv>Você não precisa saber editar nem programar.</p>
+    </header>
+
+    <div class="grade g5">
+      <article class="cartao" data-rv>
+        <span class="icone"><svg class="ic" aria-hidden="true"><use href="#i-celular"/></svg></span>
+        <h3 class="h3">Reels e vídeos curtos</h3>
+        <p>Aquela gravação que ficou na galeria porque editar toma tempo. Aprenda a levá-la até o pronto.</p>
+      </article>
+      <article class="cartao" data-rv>
+        <span class="icone"><svg class="ic" aria-hidden="true"><use href="#i-megafone"/></svg></span>
+        <h3 class="h3">Anúncios</h3>
+        <p>Vídeos para campanhas, com cortes, legendas e animações no padrão que você escolher.</p>
+      </article>
+      <article class="cartao" data-rv>
+        <span class="icone"><svg class="ic" aria-hidden="true"><use href="#i-capelo"/></svg></span>
+        <h3 class="h3">Aulas</h3>
+        <p>Gravou uma aula ou explicação? Aprenda a limpar a fala e deixar o conteúdo mais fácil de acompanhar.</p>
+      </article>
+      <article class="cartao" data-rv>
+        <span class="icone"><svg class="ic" aria-hidden="true"><use href="#i-pessoa"/></svg></span>
+        <h3 class="h3">Criadores iniciantes</h3>
+        <p>Nunca abriu um editor de vídeo? O treinamento tem passos curtos e comandos prontos.</p>
+      </article>
+      <article class="cartao" data-rv>
+        <span class="icone"><svg class="ic" aria-hidden="true"><use href="#i-tesoura"/></svg></span>
+        <h3 class="h3">Editores</h3>
+        <p>Você já edita e quer adiantar as tarefas repetitivas, como cortes e legendas, mantendo o olhar crítico.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================== 10 · AUTORIDADE · E -->
+<section class="sec" id="autor" aria-labelledby="t-autor">
+  <div class="cx">
+    <div class="autor">
+      <!-- ASSET: foto do Vitor (retrato 4:5). -->
+      <div class="autor-foto" data-rv>
+        <div class="ph ph-retrato" role="img" aria-label="Espaço reservado para a foto do Vitor" data-slot="foto-vitor">
+          <svg class="ic ic-xl" aria-hidden="true"><use href="#i-pessoa"/></svg>
+          <span class="ph-leg">Foto do Vitor · 4:5</span>
+        </div>
+      </div>
+      <div class="autor-txt">
+        <h2 class="h2 h2-medio" id="t-autor" data-rv>Aprenda com quem trabalha com vídeos e marketing há mais de 7 anos.</h2>
+        <p class="autor-nome" data-rv>Vitor <span class="pendente">sobrenome e cargo a confirmar</span></p>
+        <p data-rv>Vitor trabalha com vídeo e marketing há mais de sete anos.</p>
+        <!-- CONFIRMAR (pendência 8): que ele usa o método na própria rotina. -->
+        <p data-rv>Neste treinamento prático, ele mostra como pedir, revisar e ajustar edições com IA, em passos que qualquer pessoa consegue seguir.</p>
+        <p data-rv>Você acompanha o pedido, confere o resultado e aprende a corrigir. Depois, repete o processo nos seus vídeos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================== 11 · OFERTA · C -->
+<section class="sec sec-clara" id="comprar" aria-labelledby="t-oferta">
+  <div class="cx">
+    <header class="sec-cab">
+      <h2 class="h2" id="t-oferta" data-rv>Comece a editar seus vídeos com IA por R$ 47,90.</h2>
+      <p class="sub" data-rv>Aulas, guias, comandos prontos e presets.</p>
+    </header>
+
+    <div class="oferta" data-rv>
+      <div class="oferta-topo">
+        <img src="assets/brand/logo-claro-600.webp" width="160" height="49" alt="Do Bruto ao Pronto com IA" loading="lazy">
+        <p>Treinamento prático de edição com IA</p>
+      </div>
+
+      <div class="alterna" role="group" aria-label="Forma de pagamento">
+        <button type="button" class="alt-b" data-pg="vista" aria-pressed="true">À vista</button>
+        <button type="button" class="alt-b" data-pg="12x" aria-pressed="false">Em 12x</button>
+      </div>
+
+      <div class="preco" id="preco" data-modo="vista">
+        <p class="preco-de">de <s>R$ 97,90</s> por</p>
+        <p class="preco-v"><span class="pv-vista">R$ 47,90</span><span class="pv-12x">até 12x de R$ 5,32</span></p>
+        <p class="preco-s"><span class="pv-vista">ou até 12x de R$ 5,32</span><span class="pv-12x">ou R$ 47,90 à vista</span></p>
+        <!-- CONFIRMAR (pendências 1 e 2): "de R$ 97,90" já foi praticado? 12x de R$ 5,32 somam R$ 63,84 (há juros); igualar ao checkout. -->
+        <p class="preco-j"><span class="pendente">total e juros do parcelamento a confirmar no checkout</span></p>
+      </div>
+
+      <!-- Botão de compra preparado: o endereço do checkout entra em CHECKOUT_URL (js/pagina.js). Sem endereço, o clique só mostra um aviso. -->
+      <a class="btn btn-grande" id="btn-checkout" href="#comprar" data-checkout>QUERO GARANTIR MEU ACESSO <svg class="ic" aria-hidden="true"><use href="#i-seta"/></svg></a>
+      <p class="aviso-checkout" id="aviso-checkout" role="status" hidden>O link de pagamento ainda não foi conectado.</p>
+      <p class="nota-preco">Garantia de 7 dias · O plano da IA é contratado separadamente</p>
+      <p class="pagto"><span class="pendente">formas de pagamento a confirmar</span></p>
+
+      <ul class="inclui">
+        <li><svg class="ic" aria-hidden="true"><use href="#i-ok"/></svg>Aulas práticas, da configuração à exportação</li>
+        <li><svg class="ic" aria-hidden="true"><use href="#i-ok"/></svg>Guias</li>
+        <li><svg class="ic" aria-hidden="true"><use href="#i-ok"/></svg>Comandos prontos</li>
+        <li><svg class="ic" aria-hidden="true"><use href="#i-ok"/></svg>Presets</li>
+        <li><svg class="ic" aria-hidden="true"><use href="#i-ok"/></svg>Aula sobre economia de tokens</li>
+        <li><svg class="ic" aria-hidden="true"><use href="#i-ok"/></svg>Acesso <span class="pendente">forma e prazo a confirmar</span></li>
+      </ul>
+
+      <div class="garantia">
+        <svg class="ic ic-g" aria-hidden="true"><use href="#i-escudo"/></svg>
+        <div>
+          <h3 class="h3">7 dias para testar</h3>
+          <p>Assista, configure e faça o seu primeiro vídeo. Se o treinamento não for para você, peça o reembolso em até 7 dias após a compra. <span class="pendente">condições e regras do reembolso a confirmar</span></p>
+        </div>
+      </div>
+      <p class="oferta-aviso"><svg class="ic" aria-hidden="true"><use href="#i-notebook"/></svg>Funciona em computador. Requisitos mínimos no FAQ.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================== 12 · PERGUNTAS FREQUENTES · C -->
+<section class="sec sec-clara sec-branca" id="perguntas" aria-labelledby="t-faq">
+  <div class="cx cx-est">
+    <header class="sec-cab">
+      <h2 class="h2" id="t-faq" data-rv>Perguntas frequentes</h2>
+    </header>
+
+    <div class="faq" id="faq" data-rv>
+      <div class="faq-item">
+        <h3><button type="button" class="faq-q" aria-expanded="true" aria-controls="fa-1" id="fq-1">Nunca editei vídeo. Consigo fazer?<svg class="ic" aria-hidden="true"><use href="#i-mais"/></svg></button></h3>
+        <div class="faq-r" id="fa-1" role="region" aria-labelledby="fq-1"><div><p>Sim. O treinamento foi pensado para quem nunca editou: você pede em português e segue um passo a passo, do computador à exportação.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button type="button" class="faq-q" aria-expanded="false" aria-controls="fa-2" id="fq-2">Preciso saber programar?<svg class="ic" aria-hidden="true"><use href="#i-mais"/></svg></button></h3>
+        <div class="faq-r" id="fa-2" role="region" aria-labelledby="fq-2"><div><p>Não. Você não escreve código. Na configuração inicial, você segue instruções guiadas, uma vez.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button type="button" class="faq-q" aria-expanded="false" aria-controls="fa-3" id="fq-3">Preciso de computador?<svg class="ic" aria-hidden="true"><use href="#i-mais"/></svg></button></h3>
+        <div class="faq-r" id="fa-3" role="region" aria-labelledby="fq-3"><div><p>Sim. A edição roda no computador. <span class="pendente">sistemas e requisitos mínimos a confirmar</span></p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button type="button" class="faq-q" aria-expanded="false" aria-controls="fa-4" id="fq-4">Preciso pagar alguma IA?<svg class="ic" aria-hidden="true"><use href="#i-mais"/></svg></button></h3>
+        <div class="faq-r" id="fa-4" role="region" aria-labelledby="fq-4"><div><p>Sim. O plano da ferramenta de IA é contratado à parte, direto com ela, e não está incluso. <span class="pendente">ferramenta e valor de referência a confirmar</span> O treinamento tem uma aula sobre como gastar menos do limite (economia de tokens).</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button type="button" class="faq-q" aria-expanded="false" aria-controls="fa-5" id="fq-5">A IA edita tudo sozinha? Posso ver antes de exportar?<svg class="ic" aria-hidden="true"><use href="#i-mais"/></svg></button></h3>
+        <div class="faq-r" id="fa-5" role="region" aria-labelledby="fq-5"><div><p>Não edita sozinha. Ela executa o que você pede, e você confere a prévia antes de exportar. O resultado depende do seu vídeo, dos seus pedidos e da sua revisão.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button type="button" class="faq-q" aria-expanded="false" aria-controls="fa-6" id="fq-6">E se eu não gostar do resultado? Dá para ajustar?<svg class="ic" aria-hidden="true"><use href="#i-mais"/></svg></button></h3>
+        <div class="faq-r" id="fa-6" role="region" aria-labelledby="fq-6"><div><p>Dá. Você pode pedir mudanças em português, como trocar uma imagem, diminuir a legenda ou suavizar as animações, e conferir a prévia de novo.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button type="button" class="faq-q" aria-expanded="false" aria-controls="fa-7" id="fq-7">Como recebo o acesso?<svg class="ic" aria-hidden="true"><use href="#i-mais"/></svg></button></h3>
+        <div class="faq-r" id="fa-7" role="region" aria-labelledby="fq-7"><div><p><span class="pendente">plataforma, e-mail de envio e prazo de acesso a confirmar</span></p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button type="button" class="faq-q" aria-expanded="false" aria-controls="fa-8" id="fq-8">Como funciona a garantia?<svg class="ic" aria-hidden="true"><use href="#i-mais"/></svg></button></h3>
+        <div class="faq-r" id="fa-8" role="region" aria-labelledby="fq-8"><div><p>Você tem 7 dias a partir da compra para pedir o reembolso, se o treinamento não for para você. <span class="pendente">condições da garantia e canal do pedido a confirmar</span></p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button type="button" class="faq-q" aria-expanded="false" aria-controls="fa-9" id="fq-9">Quanto tempo leva para configurar?<svg class="ic" aria-hidden="true"><use href="#i-mais"/></svg></button></h3>
+        <div class="faq-r" id="fa-9" role="region" aria-labelledby="fq-9"><div><p>Depende do seu computador e da internet, então não prometemos um prazo. A aula guia cada passo.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button type="button" class="faq-q" aria-expanded="false" aria-controls="fa-10" id="fq-10">Que tipo de vídeo funciona melhor?<svg class="ic" aria-hidden="true"><use href="#i-mais"/></svg></button></h3>
+        <div class="faq-r" id="fa-10" role="region" aria-labelledby="fq-10"><div><p>Vídeo falado costuma ser o melhor ponto de partida. Vídeos maiores levam mais tempo de processamento e usam mais do limite da sua IA.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button type="button" class="faq-q" aria-expanded="false" aria-controls="fa-11" id="fq-11">Meus vídeos vão para a internet?<svg class="ic" aria-hidden="true"><use href="#i-mais"/></svg></button></h3>
+        <div class="faq-r" id="fa-11" role="region" aria-labelledby="fq-11"><div><p>Depende de como a ferramenta de IA processa os arquivos. O treinamento explica o que fica no seu computador e o que passa pela ferramenta que você escolher.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button type="button" class="faq-q" aria-expanded="false" aria-controls="fa-12" id="fq-12">Posso usar os presets em trabalhos de clientes?<svg class="ic" aria-hidden="true"><use href="#i-mais"/></svg></button></h3>
+        <div class="faq-r" id="fa-12" role="region" aria-labelledby="fq-12"><div><p><span class="pendente">licença de uso dos presets a confirmar</span></p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================== 13 · CHAMADA FINAL · E -->
+<section class="sec sec-final" id="fim" aria-labelledby="t-fim">
+  <div class="cx cx-est fim">
+    <!-- ASSET (opcional): alternador Bruto/Pronto com o vídeo da demonstração. -->
+    <svg class="fim-motivo" viewBox="0 0 240 40" aria-hidden="true"><path d="M4 20h28l6-12 8 24 8-18 6 6h20" class="fm-bruto"/><path d="M124 20h112" class="fm-pronto"/><path d="M104 20h12m-5-5 5 5-5 5" class="fm-seta"/></svg>
+    <h2 class="h2 h2-final" id="t-fim" data-rv>Seu próximo vídeo pode começar do mesmo jeito: você grava o bruto e aprende a conduzir a IA até o pronto.</h2>
+    <p class="sub" data-rv>Publique vídeos com cortes, legendas, animações e efeitos, sem precisar dominar programação.</p>
+    <div class="cta-bloco" data-rv>
+      <a class="btn btn-grande" href="#comprar">COMECE AGORA <svg class="ic" aria-hidden="true"><use href="#i-seta"/></svg></a>
+      <p class="nota-preco">R$ 47,90 ou até 12x de R$ 5,32 · Garantia de 7 dias</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="rod">
+  <div class="cx rod-grade">
+    <img src="assets/brand/logo-escuro-600.webp" width="124" height="38" alt="Do Bruto ao Pronto com IA" loading="lazy">
+    <p>© 2026 <span class="pendente">razão social e CNPJ a confirmar</span></p>
+    <p>Os nomes de ferramentas de IA citados pertencem aos seus donos. O Do Bruto ao Pronto com IA é um treinamento independente, sem ligação com essas empresas.</p>
+    <p>Suporte: <span class="pendente">e-mail e/ou WhatsApp a confirmar</span></p>
+    <p>Termos de uso e privacidade: <span class="pendente">páginas a confirmar</span></p>
+  </div>
+</footer>
+
+<!-- Barra fixa (somente mobile) -->
+<div class="barra" id="barra" aria-hidden="true">
+  <p><strong>Do Bruto ao Pronto</strong><span>R$ 47,90 ou até 12x de R$ 5,32</span></p>
+  <a class="btn btn-peq" href="#comprar" tabindex="-1">Comprar</a>
+</div>
+
+</body>
+</html>

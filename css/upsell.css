@@ -1,0 +1,141 @@
+/* ==========================================================================
+   Do Bruto ao Pronto com IA · página de upsell (Arsenal da Edição PRO)
+   Só o que é próprio do upsell. Base, botões, placeholders e cabeçalho
+   vêm de pagina.css; cores, fontes e medidas vêm de tokens.css.
+   ========================================================================== */
+
+/* ---------- Bloco 1 · A oportunidade (compacto, para a VSL aparecer cedo) ---------- */
+.up-abre { padding-top: calc(var(--cab-h) + clamp(16px, 2.6vw, 30px)); padding-bottom: clamp(20px, 2.6vw, 30px); }
+.up-abre-cx { display: grid; justify-items: center; text-align: center; gap: clamp(12px, 1.5vw, 16px); max-width: calc(920px + 2 * var(--gut)); }
+.up-conf {
+  display: inline-flex; align-items: center; gap: .55em; padding: .5em 1em; border-radius: var(--r-pilula);
+  font-size: .8125rem; font-weight: 600; line-height: 1.3; text-align: left;
+  color: var(--verde); background: rgba(48, 209, 88, .1); border: 1px solid rgba(48, 209, 88, .28);
+}
+.up-conf .ic { width: 1.15em; height: 1.15em; stroke-width: 2.6; }
+.up-h1 { font-size: clamp(1.5rem, .9rem + 2.5vw, 3rem); line-height: 1.08; max-width: 21em; }
+.up-imagine { font-size: clamp(.96rem, .86rem + .5vw, 1.25rem); line-height: 1.4; max-width: 36em; }
+.up-corpo { font-size: clamp(.9rem, .84rem + .3vw, 1.0625rem); line-height: 1.45; color: var(--texto-2); max-width: 38em; text-wrap: pretty; }
+.up-corpo strong, .up-obj strong { color: var(--texto); font-weight: 600; }
+.up-fecho {
+  margin-top: 2px; padding-top: clamp(12px, 1.6vw, 18px); border-top: 1px solid var(--borda-2); width: min(100%, 520px);
+  display: grid; gap: 1px; font-size: clamp(1.125rem, .95rem + .9vw, 1.5rem); font-weight: 700; line-height: 1.2; letter-spacing: -.015em;
+}
+.up-fecho span { text-wrap: balance; }
+.up-fecho span:first-child { color: var(--texto); }
+.up-fecho span:last-child { color: var(--destaque-texto); }
+
+/* ---------- Bloco 2 · Apresentação ---------- */
+.up-vsl-sec { padding-top: clamp(20px, 2.6vw, 32px); padding-bottom: clamp(40px, 6vw, 72px); }
+.up-vsl { display: grid; justify-items: center; gap: clamp(20px, 3vw, 32px); }
+.up-vsl-video { width: min(100%, 250px); }
+.up-vsl-video .ph { box-shadow: 0 40px 80px -48px rgba(0, 0, 0, .9); }
+.up-vsl-cta { display: grid; justify-items: center; text-align: center; width: 100%; }
+.up-vsl-cta .btn { width: 100%; max-width: 420px; }
+@media (min-width: 761px) { .up-vsl-video { width: 290px; } }
+
+/* ---------- Bloco 3 · Demonstrações ---------- */
+/* Carrossel: no mobile a faixa vai de borda a borda, com o próximo card à vista; no desktop são 3 cards e uma sobra do quarto. */
+.up-car { --gap: 14px; --visiveis: 1.35; }
+.up-galeria {
+  display: block; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior-x: contain; -webkit-overflow-scrolling: touch;
+  margin-inline: calc(var(--gut) * -1); padding: 6px var(--gut) 18px; scroll-padding-inline: var(--gut);
+}
+.up-galeria::-webkit-scrollbar { display: none; }
+.up-galeria:focus-visible { outline-offset: -4px; }
+.up-galeria-trilho { display: flex; gap: var(--gap); width: max-content; }
+.up-galeria-trilho li { flex: 0 0 calc((100vw - 2 * var(--gut) - (var(--visiveis) - 1) * var(--gap)) / var(--visiveis)); max-width: 300px; scroll-snap-align: start; }
+.up-galeria .ph { border-radius: var(--r-quadro); border-color: rgba(0, 0, 0, .5); box-shadow: 0 22px 40px -26px rgba(0, 0, 0, .55); }
+.up-galeria .ph-play { width: 64px; height: 64px; }
+.up-galeria .ph-play .ic { width: 26px; height: 26px; }
+.up-galeria .ph-leg { font-size: .75rem; padding: 18px 12px; }
+
+.up-nav { display: none; justify-content: center; gap: 12px; margin-top: 4px; }
+.up-nav-b {
+  width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center;
+  color: var(--texto); background: var(--card); border: 1px solid var(--linha); box-shadow: 0 1px 2px rgba(0, 0, 0, .06);
+  transition: background-color var(--d-ctrl) var(--e-ctrl), color var(--d-ctrl) var(--e-ctrl), border-color var(--d-ctrl) var(--e-ctrl), opacity var(--d-ctrl);
+}
+.up-nav-b:hover:not(:disabled) { background: var(--azul); border-color: var(--azul); color: #fff; }
+.up-nav-b:active:not(:disabled) { background: var(--azul-ativo); }
+.up-nav-b:disabled { opacity: .35; cursor: default; }
+.up-nav-b .ic { width: 22px; height: 22px; }
+
+@media (min-width: 640px) { .up-car { --gap: 18px; --visiveis: 2.6; } }
+@media (min-width: 761px) {
+  .up-nav { display: flex; }
+}
+@media (min-width: 900px) {
+  .up-car { --gap: 20px; }
+  .up-galeria { margin-inline: 0; padding: 6px 0 20px; scroll-padding-inline: 0; }
+  /* 3 cards inteiros mais uma sobra do quarto, dentro da largura do contêiner */
+  .up-galeria-trilho li { flex-basis: calc((min(100vw - 2 * var(--gut), var(--cx-max)) - 3 * var(--gap)) / 3.15); max-width: none; }
+}
+
+.up-cmp { display: grid; gap: 14px; max-width: 880px; margin: clamp(32px, 5vw, 56px) auto 0; }
+.up-cmp article { display: grid; grid-template-columns: 44px 1fr; gap: 16px; align-items: start; padding: 24px; border-radius: var(--r-cartao); }
+.up-cmp p { font-size: calc(var(--fs-corpo) - 1px); line-height: 1.45; }
+.up-cmp strong { display: block; margin-bottom: 6px; font-size: var(--fs-apoio); font-weight: 700; letter-spacing: -.01em; }
+.up-cmp-ic { width: 44px; height: 44px; border-radius: 14px; display: grid; place-items: center; }
+.up-cmp-ic .ic { width: 22px; height: 22px; }
+.up-cmp-sem { background: var(--card); border: 1px solid var(--linha); color: var(--texto-2); box-shadow: 0 1px 2px rgba(0, 0, 0, .04); }
+.up-cmp-sem strong { color: var(--texto-2); }
+.up-cmp-sem .up-cmp-ic { background: rgba(0, 0, 0, .06); color: var(--texto-3); }
+.up-cmp-com { background: var(--preto); border: 1px solid var(--azul); color: var(--tx-2); box-shadow: 0 24px 48px -32px rgba(0, 0, 0, .55); }
+.up-cmp-com strong { color: var(--tx); }
+.up-cmp-com .up-cmp-ic { background: var(--azul); color: #fff; }
+@media (min-width: 761px) { .up-cmp { grid-template-columns: 1fr 1fr; gap: 20px; } .up-cmp article { padding: 28px; } }
+
+/* ---------- Bloco 4 · Entregáveis ---------- */
+.up-ent-cx { max-width: calc(780px + 2 * var(--gut)); }
+.up-ent { display: grid; gap: 12px; }
+.up-ent li { display: grid; grid-template-columns: 48px 1fr; gap: 18px; align-items: center; background: var(--card); border: 1px solid var(--linha); border-radius: var(--r-cartao); padding: 18px 20px; }
+.up-ent .icone { margin: 0; }
+.up-ent p { color: var(--texto-2); font-size: calc(var(--fs-corpo) - 1px); line-height: 1.4; }
+.up-ent strong { color: var(--texto); font-weight: 600; }
+
+.up-obj { margin-top: clamp(36px, 5vw, 56px); padding: clamp(24px, 4vw, 36px); border-radius: var(--r-quadro); background: var(--sup-2); border: 1px solid var(--borda-2); display: grid; gap: 12px; position: relative; overflow: hidden; }
+.up-obj::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 3px; background: var(--azul-claro); }
+.up-obj .h3 { font-size: clamp(1.25rem, 1.05rem + .8vw, 1.625rem); line-height: 1.25; text-wrap: balance; }
+.up-obj p { color: var(--texto-2); font-size: var(--fs-corpo); }
+.up-obj .up-obj-r { color: var(--texto); font-weight: 600; margin-top: 4px; }
+
+/* ---------- Bloco 5 · Oferta ---------- */
+.up-oferta {
+  scroll-margin-top: calc(var(--cab-h) + 20px);
+  max-width: 580px; gap: 0; padding: clamp(28px, 5vw, 48px) clamp(22px, 5vw, 48px);
+  border-color: color-mix(in srgb, var(--azul) 38%, transparent); border-width: 1.5px;
+  box-shadow: 0 36px 80px -44px rgba(9, 77, 252, .5), 0 2px 6px rgba(0, 0, 0, .05);
+}
+/* O nome do produto é o título do cartão. */
+.up-prod {
+  font-size: clamp(1.75rem, 1.2rem + 2.6vw, 2.5rem); font-weight: 800; line-height: 1.05; letter-spacing: -.025em; text-wrap: balance;
+  color: var(--texto); margin-bottom: clamp(18px, 3vw, 26px);
+}
+/* Espaço do preço: painel grande, pronto para receber o valor. */
+.up-preco {
+  width: 100%; display: grid; place-items: center; min-height: clamp(96px, 16vw, 128px); margin-bottom: 12px;
+  border: 2px dashed color-mix(in srgb, var(--azul) 45%, transparent); border-radius: var(--r-cartao); background: var(--destaque-tinta);
+}
+.up-preco .pendente {
+  border: 0; margin: 0; padding: 0; font-size: clamp(1.5rem, 1.1rem + 2vw, 2.25rem); font-weight: 700; letter-spacing: -.02em; line-height: 1.1;
+  color: var(--texto-2);
+}
+.up-cond { margin-bottom: clamp(22px, 4vw, 30px); }
+.up-aceite { width: 100%; max-width: 480px; min-height: 68px; padding: 1em 1.6em; font-size: 1rem; line-height: 1.25; box-shadow: 0 14px 36px -10px var(--azul-brilho); }
+.up-aceite:hover { box-shadow: 0 18px 42px -10px var(--azul-brilho); }
+@media (max-width: 760px) { .up-aceite { font-size: .9375rem; } }
+.up-oferta .aviso-checkout { margin-top: 14px; }
+.up-recusa {
+  margin-top: 18px; padding: .75em .5em; min-height: 44px; display: inline-flex; align-items: center; justify-content: center;
+  font-size: var(--fs-nota); line-height: 1.35; color: var(--texto-3); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; max-width: 360px;
+  transition: color var(--d-ctrl) var(--e-ctrl);
+}
+.up-recusa:hover { color: var(--texto-2); }
+/* A marca do treinamento fica discreta, no fim do cartão. */
+.up-marca { width: 96px; height: auto; margin-top: 22px; opacity: .55; }
+
+/* ---------- Ajustes de ritmo ---------- */
+.up-oferta-sec { padding-bottom: clamp(56px, 8vw, 104px); }
+/* Sem barra fixa nesta página: o rodapé não reserva espaço para ela. */
+@media (max-width: 760px) { .rod { padding-bottom: 48px; } }

@@ -1,0 +1,154 @@
+/* ==========================================================================
+   Do Bruto ao Pronto com IA · tokens de identidade visual
+   Só variáveis e fontes. Nenhum componente ou layout mora aqui.
+   Base: fundos pretos, cinzas e claros da página de referência.
+   Mudança: o laranja de destaque virou o azul da marca (#094DFC).
+   Contrastes medidos pela fórmula WCAG 2.x contra os fundos indicados.
+   ========================================================================== */
+
+/* ---------- Inter, hospedada no próprio site (variável, 100–900) ---------- */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../assets/fonts/inter-var-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../assets/fonts/inter-var-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+:root {
+  color-scheme: dark;
+
+  /* ----- Marca (medidas no arquivo da logo) ----- */
+  --azul:        #094DFC;  /* azul da marca: fundo de botão, ícones grandes, linhas */
+  --azul-hover:  #2B66FF;  /* botão em hover: texto branco 4,7:1 */
+  --azul-ativo:  #0839C9;  /* botão pressionado: texto branco 8,6:1 */
+  --azul-claro:  #3F78FF;  /* azul para gráficos sobre escuro: 5,3:1 no #000, 4,3:1 no #1d1d1f */
+  --azul-texto-escuro: #6C9BFF; /* texto/realce sobre escuro: 7,8:1 no #000, 6,2:1 no #1d1d1f */
+  --azul-texto-claro:  #0840D0; /* texto/realce sobre claro: 7,3:1 no #f5f5f7, 7,9:1 no branco */
+  --azul-tinta-escuro: rgba(9, 77, 252, .16);  /* chips e brilhos sobre escuro */
+  --azul-tinta-claro:  rgba(9, 77, 252, .08);  /* chips e brilhos sobre claro */
+  --azul-brilho:       rgba(9, 77, 252, .35);  /* sombra em volta do botão */
+  --azul-degrade:      linear-gradient(120deg, #3F78FF, #094DFC 55%, #0839C9);
+  --tinta-do-botao:    #FFFFFF; /* texto sobre o azul: 6,0:1 */
+
+  /* ----- Fundos escuros (os da página de referência, sem azul-marinho) ----- */
+  --preto:  #000000;
+  --sup-1:  #0d0d0f;
+  --sup-2:  #161617;
+  --sup-3:  #1d1d1f;
+  --claro:  #f5f5f7;
+
+  /* ----- Texto sobre escuro ----- */
+  --tx:      #f5f5f7;  /* 19,3:1 no #000 */
+  --tx-2:    #a1a1a6;  /* 8,2:1 no #000, 6,5:1 no #1d1d1f */
+  --tx-3:    #8e8e93;  /* era #6e6e73 (4,1:1 no #000, 3,3:1 no #1d1d1f); agora 6,4:1 e 5,2:1 */
+  --tx-nota: #86868b;  /* 5,8:1 no #000, 4,7:1 no #1d1d1f */
+
+  /* ----- Linhas e vidro ----- */
+  --borda:    rgba(255, 255, 255, .08);
+  --borda-2:  rgba(255, 255, 255, .18);
+  --vidro:        rgba(22, 22, 23, .8);
+  --vidro-filtro: saturate(180%) blur(20px);
+
+  /* ----- Estados ----- */
+  --verde:     #30d158;  /* 10,4:1 no #000 */
+  --vermelho:  #ff453a;  /* 6,2:1 no #000 */
+  --foco:      #6C9BFF;  /* anel de foco no escuro */
+
+  /* ----- Tipografia ----- */
+  --fonte: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --fs-hero:  2.5rem;
+  --fs-1:     2rem;
+  --fs-2:     1.625rem;
+  --fs-3:     1.3125rem;
+  --fs-apoio: 1.1875rem;
+  --fs-corpo: 1.0625rem;
+  --fs-nota:  .875rem;
+  --fs-leg:   .75rem;
+  --fw-hero:  700;
+  --lh-hero:  1.07;
+  --tr-hero:  -.025em;
+  --lh-corpo: 1.47;
+
+  /* ----- Forma ----- */
+  --r-ctrl:     12px;
+  --r-cartao:   20px;
+  --r-quadro:   28px;
+  --r-quadro-g: 32px;
+  --r-pilula:   980px;
+
+  /* ----- Movimento ----- */
+  --e-mola: cubic-bezier(.32, .72, 0, 1);
+  --e-ctrl: cubic-bezier(.25, .1, .25, 1);
+  --d-toque: .1s;
+  --d-ctrl:  .24s;
+  --d-entra: .6s;
+  --rv-passo: 70ms;   /* atraso entre itens que entram na rolagem */
+  --rv-sobe:  20px;
+
+  /* ----- Espaço e layout ----- */
+  --gut:   22px;
+  --sec-y: 60px;
+  --cab-h: 48px;
+  --cx-max: 1080px;
+  --cx-est: 680px;
+
+  /* ----- Papéis semânticos (os componentes usam estes) ----- */
+  --bg:      var(--preto);
+  --card:    var(--sup-2);
+  --texto:   var(--tx);
+  --texto-2: var(--tx-2);
+  --texto-3: var(--tx-3);
+  --destaque-texto: var(--azul-texto-escuro);
+  --destaque-grafico: var(--azul-claro);
+  --destaque-tinta: var(--azul-tinta-escuro);
+  --linha:   var(--borda);
+  --ok:      var(--verde);
+  --alerta:  var(--vermelho);
+}
+
+/* Seções claras: só redefinem os papéis semânticos. */
+.sec-clara {
+  color-scheme: light;
+  --bg:      var(--claro);
+  --card:    #ffffff;
+  --texto:   #1d1d1f;  /* 15,5:1 no #f5f5f7 */
+  --texto-2: #515154;  /* 7,3:1 no #f5f5f7, 7,9:1 no branco */
+  --texto-3: #6e6e73;  /* 4,7:1 no #f5f5f7, 5,1:1 no branco */
+  --destaque-texto: var(--azul-texto-claro);
+  --destaque-grafico: var(--azul);  /* 5,5:1 no #f5f5f7 */
+  --destaque-tinta: var(--azul-tinta-claro);
+  --linha:   rgba(0, 0, 0, .1);
+  --ok:      #1E7B34;  /* 4,9:1 no #f5f5f7 (o #30d158 daria 1,9:1) */
+  --alerta:  #C4281C;  /* 5,3:1 no #f5f5f7 */
+  --foco:    #0840D0;
+  background: var(--bg);
+  color: var(--texto);
+}
+
+/* Escala tipográfica e espaçamento por largura (mesmos pontos de quebra da referência) */
+@media (min-width: 761px) {
+  :root {
+    --fs-hero: 3.5rem;  --fw-hero: 600;
+    --fs-1: 2.75rem;  --fs-2: 2rem;  --fs-3: 1.5rem;
+    --fs-apoio: 1.3125rem;  --fs-corpo: 1.1875rem;
+    --gut: 32px;  --sec-y: 112px;  --cab-h: 52px;
+  }
+}
+@media (min-width: 1081px) {
+  :root {
+    --fs-hero: 5rem;
+    --fs-1: 3.5rem;  --fs-2: 2.5rem;  --fs-3: 1.75rem;
+    --fs-apoio: 1.5rem;  --fs-corpo: 1.3125rem;
+    --gut: 48px;  --sec-y: 132px;
+  }
+}
