@@ -161,6 +161,7 @@ dd.pendente { font-size: 1rem; }
 .selos li { display: inline-flex; align-items: center; gap: .45em; }
 .selos .ic { width: 1.1em; height: 1.1em; color: var(--azul-texto-escuro); }
 .hero-video { width: min(100%, 300px); }
+.hero-video video { display: block; width: 100%; aspect-ratio: 9 / 16; border-radius: var(--r-quadro); background: #000; object-fit: cover; }
 .hero-cta { text-align: center; }
 .hero-cta .nota-preco { margin-top: 16px; }
 
