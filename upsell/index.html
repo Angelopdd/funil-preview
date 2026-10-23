@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Arsenal da Edição PRO · Do Bruto ao Pronto com IA</title>
+<title>Arsenal de Edição com I.A · Do Bruto ao Pronto com IA</title>
 <!-- Página pós-compra. Fica fora do buscador até a decisão de publicação. -->
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#000000">
@@ -13,11 +13,13 @@
 <link rel="preload" href="../assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../css/tokens.css">
 <link rel="stylesheet" href="../css/pagina.css">
+<link rel="stylesheet" href="../css/vsl.css">
 <link rel="stylesheet" href="../css/upsell.css">
 <script>document.documentElement.classList.add('js')</script>
 <script src="../js/preview.js" defer></script>
 <script src="../js/pagina.js" defer></script>
 <script src="../js/upsell.js" defer></script>
+<script src="../js/vsl.js" defer></script>
 </head>
 <body>
 
@@ -34,6 +36,7 @@
     <symbol id="i-livro" viewBox="0 0 24 24"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></symbol>
     <symbol id="i-terminal" viewBox="0 0 24 24"><path d="M12 19h8"/><path d="m4 17 6-6-6-6"/></symbol>
     <symbol id="i-ajustes" viewBox="0 0 24 24"><path d="M10 5H3"/><path d="M12 19H3"/><path d="M14 3v4"/><path d="M16 17v4"/><path d="M21 12h-9"/><path d="M21 19h-5"/><path d="M21 5h-7"/><path d="M8 10v4"/><path d="M8 12H3"/></symbol>
+    <symbol id="i-som" viewBox="0 0 24 24"><path d="M11 4.7 6.7 9H3v6h3.7l4.3 4.3z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.4 5.6a9 9 0 0 1 0 12.8"/></symbol>
     <symbol id="i-filme" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="2.18"/><path d="M7 2v20"/><path d="M17 2v20"/><path d="M2 12h20"/><path d="M2 7h5"/><path d="M2 17h5"/><path d="M17 17h5"/><path d="M17 7h5"/></symbol>
   </defs>
 </svg>
@@ -41,8 +44,8 @@
 <a class="pular" href="#conteudo">Pular para o conteúdo</a>
 
 <header class="cab">
-  <a class="cab-logo" href="#inicio" aria-label="Do Bruto ao Pronto com IA, ir ao topo">
-    <img src="../assets/brand/logo-escuro-600.webp" width="124" height="38" alt="Do Bruto ao Pronto com IA">
+  <a class="cab-logo cab-logo-arsenal" href="#inicio" aria-label="Arsenal de Edição com I.A, ir ao topo">
+    <img src="../assets/brand/arsenal-logo-480.webp" width="480" height="134" alt="Arsenal de Edição com I.A">
   </a>
 </header>
 
@@ -54,19 +57,37 @@
     <p class="up-conf" data-rv><svg class="ic" aria-hidden="true"><use href="#i-ok"/></svg>Sua compra do Do Bruto ao Pronto com IA foi confirmada!</p>
     <h1 class="h1 up-h1" id="t-abre" data-rv>Você já garantiu o método. <span class="dest">Agora tenha estilos profissionais de edição preparados para usar com IA.</span></h1>
     <p class="sub up-imagine" data-rv>Imagine não precisar planejar seus cortes, legendas, animações e efeitos do zero a cada novo vídeo.</p>
-    <p class="up-corpo" data-rv>Com o <strong>Arsenal da Edição PRO</strong>, você terá uma biblioteca de skills especializadas, com diferentes estilos de edição para aplicar e personalizar nos seus conteúdos.</p>
+    <p class="up-corpo" data-rv>Com o <strong>Arsenal de Edição com I.A</strong>, você terá uma biblioteca de skills especializadas, com diferentes estilos de edição para aplicar e personalizar nos seus conteúdos.</p>
     <p class="up-fecho" data-rv><span>Mais possibilidades para criar.</span> <span>Menos trabalho começando do zero.</span></p>
   </div>
 </section>
 
 <!-- ======================================================== BLOCO 2 · APRESENTAÇÃO · E (sup-1) -->
-<section class="sec sec-e1 up-vsl-sec" id="apresentacao" aria-label="Apresentação do Arsenal da Edição PRO">
+<section class="sec sec-e1 up-vsl-sec" id="apresentacao" aria-label="Apresentação do Arsenal de Edição com I.A">
   <div class="cx up-vsl">
-    <!-- ASSET: VSL do Arsenal da Edição PRO, vertical 9:16. Trocar este bloco pelo player quando o arquivo existir. -->
+    <!-- ASSET: VSL do Arsenal de Edição com I.A, vertical 9:16 (MP4 H.264/AAC otimizado). Player: js/vsl.js, o mesmo da página principal. -->
     <div class="up-vsl-video" data-rv>
-      <div class="ph" role="img" aria-label="Espaço reservado para a VSL do Arsenal da Edição PRO, formato vertical 9:16" data-slot="vsl-arsenal">
-        <span class="ph-play"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg></span>
-        <span class="ph-leg">VSL do Arsenal da Edição PRO · 9:16</span>
+      <div class="vsl" id="vsl" data-estado="carregando" data-src="../assets/videos/arsenal-vsl-720p.mp4">
+        <video class="vsl-video" muted playsinline preload="auto" disablepictureinpicture disableremoteplayback controlslist="nodownload noplaybackrate noremoteplayback" tabindex="-1" aria-label="Vídeo de apresentação do Arsenal de Edição com I.A" poster="../assets/videos/arsenal-vsl-poster.jpg"></video>
+        <button type="button" class="vsl-ouvir">
+          <span class="vsl-cartao">
+            <span class="vsl-t-mudo">
+              <span class="vsl-tit">Seu vídeo já começou.</span>
+              <span class="vsl-acao"><svg class="ic" aria-hidden="true"><use href="#i-som"/></svg>Clique para ouvir</span>
+            </span>
+            <span class="vsl-t-bloq">
+              <span class="vsl-tit">Seu vídeo está pronto.</span>
+              <span class="vsl-acao"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg>Clique para assistir</span>
+            </span>
+          </span>
+        </button>
+        <button type="button" class="vsl-alvo" aria-label="Pausar vídeo" hidden></button>
+        <span class="vsl-ic" aria-hidden="true"><svg class="ic"><use href="#i-play"/></svg></span>
+        <div class="vsl-barra" aria-hidden="true"><i></i></div>
+        <div class="vsl-erro" role="alert" hidden>
+          <p>Não foi possível carregar o vídeo.</p>
+          <button type="button">Tentar novamente</button>
+        </div>
       </div>
     </div>
     <div class="up-vsl-cta" data-rv>
@@ -137,7 +158,7 @@
       <h3 class="h3">Mas eu já comprei o treinamento. Por que preciso do Arsenal?</h3>
       <p class="up-obj-r">Porque são produtos complementares.</p>
       <p>O <strong>Do Bruto ao Pronto com IA</strong> ensina você a conduzir o processo de edição.</p>
-      <p>O <strong>Arsenal da Edição PRO</strong> oferece estilos especializados para você colocar esse conhecimento em prática sem precisar construir cada direção visual do zero.</p>
+      <p>O <strong>Arsenal de Edição com I.A</strong> oferece estilos especializados para você colocar esse conhecimento em prática sem precisar construir cada direção visual do zero.</p>
     </div>
   </div>
 </section>
@@ -146,19 +167,20 @@
 <section class="sec sec-clara up-oferta-sec" id="comprar" aria-labelledby="t-oferta">
   <div class="cx">
     <header class="sec-cab">
-      <h2 class="h2 h2-longo" id="t-oferta" data-rv>Amplie suas possibilidades de edição com o Arsenal da Edição PRO.</h2>
+      <h2 class="h2 h2-longo" id="t-oferta" data-rv>Amplie suas possibilidades de edição com o Arsenal de Edição com I.A.</h2>
       <p class="sub" data-rv>Adicione ao seu treinamento uma biblioteca de skills para explorar diferentes estilos profissionais e dar mais consistência visual aos seus conteúdos.</p>
     </header>
 
     <div class="oferta up-oferta" id="oferta" data-rv>
-      <h3 class="up-prod">ARSENAL DA EDIÇÃO PRO</h3>
+      <img class="up-logo" src="../assets/brand/arsenal-logo-960.webp" srcset="../assets/brand/arsenal-logo-480.webp 480w, ../assets/brand/arsenal-logo-960.webp 960w" sizes="(min-width: 640px) 320px, 70vw" width="960" height="267" alt="" loading="lazy">
+      <h3 class="up-prod">ARSENAL DE EDIÇÃO COM I.A</h3>
 
       <!-- CONFIRMAR: preço, condições de acesso e garantia. Nada abaixo foi definido. -->
       <p class="up-preco"><span class="pendente">preço a definir</span></p>
       <p class="up-cond"><span class="pendente">condições de acesso e garantia a definir</span></p>
 
       <!-- Botão de aceite preparado: o endereço do pagamento entra em LINK_ACEITE (js/upsell.js). Sem endereço, o clique só mostra um aviso. -->
-      <a class="btn btn-grande up-aceite" id="btn-aceite" href="#oferta">SIM, QUERO ADICIONAR O ARSENAL DA EDIÇÃO PRO <svg class="ic" aria-hidden="true"><use href="#i-seta"/></svg></a>
+      <a class="btn btn-grande up-aceite" id="btn-aceite" href="#oferta">SIM, QUERO ADICIONAR O ARSENAL DE EDIÇÃO COM I.A <svg class="ic" aria-hidden="true"><use href="#i-seta"/></svg></a>
       <p class="aviso-checkout" id="aviso-aceite" role="status" hidden>O link de pagamento ainda não foi conectado.</p>
 
       <!-- Link de recusa: o destino entra em LINK_RECUSA (js/upsell.js). -->

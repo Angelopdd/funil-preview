@@ -15,6 +15,7 @@
   var tentar = erro.querySelector('button');
 
   var id = raiz.getAttribute('data-mux-playback-id');
+  var fonte = raiz.getAttribute('data-src');   // MP4 direto (upsell); sem ele, HLS do Mux
   var url = 'https://stream.mux.com/' + id + '.m3u8';
   var scriptHls = (document.currentScript && document.currentScript.src || '').replace(/[^\/]*$/, '') + 'vendor/hls.min.js';
   var reduzido = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -97,6 +98,7 @@
   }
 
   function carregar() {
+    if (fonte) { v.src = fonte; return Promise.resolve(); }
     var nativo = v.canPlayType(HLS_MIME);
     var temMse = !!(window.MediaSource || window.ManagedMediaSource);
     if (nativo && !temMse) { v.src = url; return Promise.resolve(); }    // iPhone antigo e afins
