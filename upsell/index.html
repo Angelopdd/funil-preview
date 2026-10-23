@@ -10,6 +10,8 @@
 <link rel="icon" href="../assets/brand/favicon.ico" sizes="48x48">
 <link rel="icon" type="image/png" sizes="32x32" href="../assets/brand/favicon-32.png">
 <link rel="apple-touch-icon" href="../assets/brand/apple-touch-icon.png">
+<link rel="preconnect" href="https://stream.mux.com" crossorigin>
+<link rel="preconnect" href="https://image.mux.com">
 <link rel="preload" href="../assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../css/tokens.css">
 <link rel="stylesheet" href="../css/pagina.css">
@@ -65,10 +67,10 @@
 <!-- ======================================================== BLOCO 2 · APRESENTAÇÃO · E (sup-1) -->
 <section class="sec sec-e1 up-vsl-sec" id="apresentacao" aria-label="Apresentação do Arsenal de Edição com I.A">
   <div class="cx up-vsl">
-    <!-- ASSET: VSL do Arsenal de Edição com I.A, vertical 9:16 (MP4 H.264/AAC otimizado). Player: js/vsl.js, o mesmo da página principal. -->
+    <!-- ASSET: VSL do Arsenal de Edição com I.A, vertical 9:16 servida pelo Mux (HLS). Player: js/vsl.js, o mesmo da página principal. -->
     <div class="up-vsl-video" data-rv>
-      <div class="vsl" id="vsl" data-estado="carregando" data-src="../assets/videos/arsenal-vsl-720p.mp4">
-        <video class="vsl-video" muted playsinline preload="auto" disablepictureinpicture disableremoteplayback controlslist="nodownload noplaybackrate noremoteplayback" tabindex="-1" aria-label="Vídeo de apresentação do Arsenal de Edição com I.A" poster="../assets/videos/arsenal-vsl-poster.jpg"></video>
+      <div class="vsl" id="vsl" data-estado="carregando" data-mux-playback-id="GAg9Iv101Ec00DrUgJ29CiE7r4fU8ga8uSpjgtGdJj59Q">
+        <video class="vsl-video" muted playsinline preload="auto" disablepictureinpicture disableremoteplayback controlslist="nodownload noplaybackrate noremoteplayback" tabindex="-1" aria-label="Vídeo de apresentação do Arsenal de Edição com I.A" poster="https://image.mux.com/GAg9Iv101Ec00DrUgJ29CiE7r4fU8ga8uSpjgtGdJj59Q/thumbnail.webp?time=0&amp;width=640"></video>
         <button type="button" class="vsl-ouvir">
           <span class="vsl-cartao">
             <span class="vsl-t-mudo">
