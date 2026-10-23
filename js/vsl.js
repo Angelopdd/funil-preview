@@ -16,7 +16,7 @@
 
   var id = raiz.getAttribute('data-mux-playback-id');
   var url = 'https://stream.mux.com/' + id + '.m3u8';
-  var scriptHls = (document.currentScript && document.currentScript.src || '').replace(/[^\/]*$/, '') + 'vendor/hls.light.min.js';
+  var scriptHls = (document.currentScript && document.currentScript.src || '').replace(/[^\/]*$/, '') + 'vendor/hls.min.js';
   var reduzido = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var HLS_MIME = 'application/vnd.apple.mpegurl';
 
